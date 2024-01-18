@@ -11,22 +11,16 @@ use Livewire\Component;
 class RepositoryDetails extends Component
 {
     public Repository $repository;
+    public $tree;
 
-    public function render()
-    {
-        $git = new Git();
+    private function getObjects (GitRepository $repo) {
+        $tree = $repo->execute(
+            'ls-tree', "--format='%(objectmode) %(objecttype) %(objectname) %(path)",
+            'HEAD',
+            $this->tree ? $this->tree . '/' : '.'
+        );
 
-        $repo = $git->open(storage_path('repositories/' . $this->repository->title . '.git'));
-
-        $branches = $repo->getBranches() ?? ['master'];
-        $tags = $repo->getTags() ?? [];
-        $commits = $repo->execute('log', '--pretty=format:"%s"');
-
-        $tree = $repo->execute('ls-tree', "--format='%(objectmode) %(objecttype) %(objectname) %(path)", 'HEAD');
         $objects = [];
-
-        $readmeMarkdown = implode(PHP_EOL, $repo->execute('show', 'HEAD:readme.md'));
-
         foreach ($tree as $object) {
             $data = explode(' ', $object);
 
@@ -42,13 +36,34 @@ class RepositoryDetails extends Component
 
             $objects[] = [
                 'type' => $data[1],
-                'name' => $data[3],
+                'full_name' => $data[3],
+                'name' => str_replace($this->tree . '/', '', $data[3]),
                 'last_commit' => [
                     'date' => $lastCommit[0],
                     'description' => $lastCommit[1]
                 ]
             ];
         }
+
+        return $objects;
+    }
+
+    public function render()
+    {
+        $git = new Git();
+        $repositoryPath = storage_path('repositories/' . $this->repository->title . '.git');
+
+        $repo = $git->open($repositoryPath);
+
+        $branches = $repo->getBranches() ?? ['master'];
+        $tags = $repo->getTags() ?? [];
+        $commits =  $repo->execute('log', '--pretty=format:"%s"');
+
+        $gitCommand = 'git show HEAD:readme.md';
+        $readmeMarkdown = shell_exec("cd $repositoryPath && $gitCommand");
+        // dd($readmeMarkdown);
+
+        $objects = $this->getObjects($repo);
 
         $folders = array_filter($objects, fn ($object) => $object['type'] === 'tree');
         $files = array_filter($objects, fn ($object) => $object['type'] === 'blob');

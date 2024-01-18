@@ -62,9 +62,9 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200 flex items-center ">
                                     @svg('eos-folder', 'w-8')
-                                    <div class="hover:text-indigo-500 transition-all cursor-pointer">
+                                    <a href="{{ route('repositories.details', ['repository' => $repository->id, 'tree' => $folder['full_name']]) }}" class="hover:text-indigo-500 transition-all cursor-pointer" wire:navigate>
                                         {{ $folder['name'] }}
-                                    </div>
+                                    </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{ $folder['last_commit']['description'] }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{ $folder['last_commit']['date'] }}</td>
@@ -74,9 +74,9 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200 flex items-center ">
                                     @svg('eos-insert-drive-file-o', 'w-8')
-                                    <div class="hover:text-indigo-500 transition-all cursor-pointer">
+                                    <a href="{{ route('repositories.blob', ['blobName' => $file['full_name'], 'repository' => $repository->id]) }}" class="hover:text-indigo-500 transition-all cursor-pointer">
                                         {{ $file['name'] }}
-                                    </div>
+                                    </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{ $file['last_commit']['description'] }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{ $file['last_commit']['date'] }}</td>
