@@ -23,9 +23,11 @@ module.exports = {
         './resources/**/*.php',
         './resources/**/*.vue',
         './resources/**/*.twig',
+        'node_modules/preline/dist/*.js'
     ],
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('preline/plugin'),
     ],
 }

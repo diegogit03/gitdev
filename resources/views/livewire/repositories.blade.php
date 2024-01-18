@@ -7,9 +7,9 @@
     </div>
     @foreach ($this->repositories as $repository)
         <div class="flex justify-between bg-gray-100 mb-3 p-3">
-            <span>
+            <a href="{{ route('repositories.details', ['repository' => $repository->id]) }}" class="cursor-pointer hover:text-indigo-500 transition-all" wire:navigate>
                 {{ $repository->title }}
-            </span>
+            </a>
         </div>
     @endforeach
 </div>

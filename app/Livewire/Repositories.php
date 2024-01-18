@@ -10,7 +10,7 @@ class Repositories extends Component
 {
     public function render()
     {
-        return view('livewire.repositories')->extends('layouts.app');;
+        return view('livewire.repositories')->extends('layouts.app');
     }
 
     #[Computed()]

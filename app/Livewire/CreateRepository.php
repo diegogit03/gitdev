@@ -29,7 +29,11 @@ class CreateRepository extends Component
 
         $git = new Git();
 
-        $git->init(storage_path('repositories/' . $this->title));
+        $repo = $git->init(storage_path('repositories/' . $this->title . '.git'), [
+            '--bare'
+        ]);
+
+        $repo->execute('config', 'http.receivepack', 'true');
 
         $this->redirect(route('home'), navigate: true);
     }

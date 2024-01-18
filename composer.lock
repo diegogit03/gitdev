@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d9073c0855cf0e2a2c082e9e9e2fc53",
+    "content-hash": "c8cf7937d513222761721bb8c2921df3",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -210,6 +210,77 @@
                 }
             ],
             "time": "2023-12-11T17:09:12+00:00"
+        },
+        {
+            "name": "codeat3/blade-eos-icons",
+            "version": "1.13.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeat3/blade-eos-icons.git",
+                "reference": "2ad73325407a019203fb1c487bad3b68d6664694"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeat3/blade-eos-icons/zipball/2ad73325407a019203fb1c487bad3b68d6664694",
+                "reference": "2ad73325407a019203fb1c487bad3b68d6664694",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.1",
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "codeat3/blade-icon-generation-helpers": "^0.3",
+                "codeat3/phpcs-styles": "^1.0",
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codeat3\\BladeEosIcons\\BladeEosIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeat3\\BladeEosIcons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Swapnil Sarwe",
+                    "homepage": "https://swapnilsarwe.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A package to easily make use of \"EOS Icons\" in your Laravel Blade views.",
+            "homepage": "https://github.com/codeat3/blade-eos-icons",
+            "keywords": [
+                "blade",
+                "eos-icons",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/codeat3/blade-eos-icons/issues",
+                "source": "https://github.com/codeat3/blade-eos-icons/tree/1.13.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/swapnilsarwe",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-03-10T15:14:13+00:00"
         },
         {
             "name": "czproject/git-php",
@@ -1177,6 +1248,130 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "hollodotme/fast-cgi-client",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hollodotme/fast-cgi-client.git",
+                "reference": "785608e89059f6fd490e6df626703a28f48c5adb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/785608e89059f6fd490e6df626703a28f48c5adb",
+                "reference": "785608e89059f6fd490e6df626703a28f48c5adb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "tm/tooly-composer-script": "^1.0"
+            },
+            "bin": [
+                "bin/fcgiget"
+            ],
+            "type": "library",
+            "extra": {
+                "tools": {
+                    "phpunit7": {
+                        "url": "https://phar.phpunit.de/phpunit-7.phar",
+                        "replace": true,
+                        "only-dev": true
+                    },
+                    "phpunit8": {
+                        "url": "https://phar.phpunit.de/phpunit-8.phar",
+                        "replace": true,
+                        "only-dev": true
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "hollodotme\\FastCGI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Holger Woltersdorf",
+                    "email": "hw@hollo.me"
+                }
+            ],
+            "description": "A PHP fast CGI client to send requests (a)synchronously to PHP-FPM.",
+            "keywords": [
+                "Socket",
+                "async",
+                "fastcgi",
+                "php-fpm"
+            ],
+            "support": {
+                "issues": "https://github.com/hollodotme/fast-cgi-client/issues",
+                "source": "https://github.com/hollodotme/fast-cgi-client/tree/2.x-stable"
+            },
+            "time": "2019-05-30T22:57:49+00:00"
+        },
+        {
+            "name": "hollodotme/fast-cgi-proxy",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hollodotme/fast-cgi-proxy.git",
+                "reference": "c7fd1abc56fc085a85d856277a5e52ab0852a81f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hollodotme/fast-cgi-proxy/zipball/c7fd1abc56fc085a85d856277a5e52ab0852a81f",
+                "reference": "c7fd1abc56fc085a85d856277a5e52ab0852a81f",
+                "shasum": ""
+            },
+            "require": {
+                "hollodotme/fast-cgi-client": "~2.7.2",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "tm/tooly-composer-script": "~1.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "tools": {
+                    "phpunit7": {
+                        "url": "https://phar.phpunit.de/phpunit-7.phar",
+                        "replace": true,
+                        "only-dev": true
+                    },
+                    "phpunit8": {
+                        "url": "https://phar.phpunit.de/phpunit-scoped-8.phar",
+                        "replace": true,
+                        "only-dev": true
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "hollodotme\\FastCGI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Holger Woltersdorf",
+                    "email": "hw@hollo.me"
+                }
+            ],
+            "description": "A proxy for distributing (a)sync requests to multiple php-fpm sockets/pools.",
+            "support": {
+                "issues": "https://github.com/hollodotme/fast-cgi-proxy/issues",
+                "source": "https://github.com/hollodotme/fast-cgi-proxy/tree/v0.2.0"
+            },
+            "time": "2019-06-10T20:23:37+00:00"
         },
         {
             "name": "laravel-frontend-presets/tall",
