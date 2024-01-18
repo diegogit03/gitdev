@@ -11,6 +11,7 @@ use App\Livewire\Auth\Verify;
 use App\Livewire\CreateRepository;
 use App\Livewire\Repositories;
 use App\Livewire\RepositoryDetails;
+use App\Livewire\RepositoryHistory;
 use hollodotme\FastCGI\Client;
 use hollodotme\FastCGI\SocketConnections\UnixDomainSocket;
 use Illuminate\Http\Request;
@@ -61,4 +62,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/', Repositories::class)->name('home');
     Route::get('/create', CreateRepository::class)->name('repositories.create');
     Route::get('/{repository}', RepositoryDetails::class)->name('repositories.details');
+    Route::get('/{repository}/history', RepositoryHistory::class)->name('repositories.history');
 });

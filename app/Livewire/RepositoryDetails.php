@@ -19,6 +19,7 @@ class RepositoryDetails extends Component
 
         $branches = $repo->getBranches() ?? ['master'];
         $tags = $repo->getTags() ?? [];
+        $commits = $repo->execute('log', '--pretty=format:"%s"');
 
         $tree = $repo->execute('ls-tree', "--format='%(objectmode) %(objecttype) %(objectname) %(path)", 'HEAD');
         $objects = [];
@@ -46,6 +47,9 @@ class RepositoryDetails extends Component
             ];
         }
 
-        return view('livewire.repository-details', compact(['branches', 'tags', 'objects']))->extends('layouts.app');
+        $folders = array_filter($objects, fn ($object) => $object['type'] === 'tree');
+        $files = array_filter($objects, fn ($object) => $object['type'] === 'blob');
+
+        return view('livewire.repository-details', compact(['branches', 'tags', 'objects', 'commits', 'folders', 'files']))->extends('layouts.app');
     }
 }
